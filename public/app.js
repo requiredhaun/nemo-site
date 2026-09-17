@@ -226,9 +226,8 @@
   /* custom cursor: dot + ring + trail */
   var dot = $('cur');
   var ring = $('cur-ring');
-  var glow = document.querySelector('.glow');
   if (dot && ring) {
-    var mx = -100, my = -100, rx = -100, ry = -100, glowTick = false;
+    var mx = -100, my = -100, rx = -100, ry = -100;
     var trail = [];
     for (var i = 0; i < 7; i++) {
       var s = document.createElement('div');
@@ -240,14 +239,6 @@
     document.addEventListener('mousemove', function (e) {
       mx = e.clientX; my = e.clientY;
       dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-      if (glow && !glowTick) {
-        glowTick = true;
-        requestAnimationFrame(function () {
-          glow.style.setProperty('--mx', mx + 'px');
-          glow.style.setProperty('--my', my + 'px');
-          glowTick = false;
-        });
-      }
     });
     (function loop() {
       rx += (mx - rx) * 0.16;

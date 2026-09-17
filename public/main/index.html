@@ -11,9 +11,6 @@
 <body>
   <div id="cur" aria-hidden="true"></div>
   <div id="cur-ring" aria-hidden="true"></div>
-  <div class="dots" aria-hidden="true"></div>
-  <div class="glow" aria-hidden="true"></div>
-
   <header class="top">
     <a class="brand" href="/main">
       <img src="/logo.png" alt="NEMO" />
@@ -52,12 +49,12 @@
     <section class="features" id="features">
       <h2 data-i18n="feat.title">Возможности</h2>
       <div class="grid">
-        <div class="card"><h3 data-i18n="feat.1t">Сборки и загрузчики</h3><p data-i18n="feat.1d">Изолированные сборки: Vanilla, Fabric, Quilt, Forge, NeoForge. У каждой своя папка, RAM и версия Java.</p></div>
-        <div class="card"><h3 data-i18n="feat.2t">Каталог Modrinth</h3><p data-i18n="feat.2d">Моды, шейдеры, текстурпаки и модпаки — поиск и установка в один клик, плюс импорт .mrpack.</p></div>
-        <div class="card"><h3 data-i18n="feat.3t">Темы</h3><p data-i18n="feat.3d">Тёмная и светлая темы, акцентные цвета, dot-сетка и русский/английский интерфейс.</p></div>
-        <div class="card"><h3 data-i18n="feat.4t">Discord RPC</h3><p data-i18n="feat.4d">Статус «сидит в NEMO / запускает / играет» виден в профиле Discord из коробки.</p></div>
-        <div class="card"><h3 data-i18n="feat.5t">Автообновление</h3><p data-i18n="feat.5d">Лаунчер сам находит новый релиз на GitHub и предлагает обновиться. Пропуск версии — в один клик.</p></div>
-        <div class="card"><h3 data-i18n="feat.6t">Без Java-заморочек</h3><p data-i18n="feat.6d">Нужный рантайм Mojang (8/16/17/21) качается автоматически под каждую версию игры.</p></div>
+        <div class="card"><div class="glyph">▦</div><h3 data-i18n="feat.1t">Сборки и загрузчики</h3><p data-i18n="feat.1d">Изолированные сборки: Vanilla, Fabric, Quilt, Forge, NeoForge. У каждой своя папка, RAM и версия Java.</p></div>
+        <div class="card"><div class="glyph">◈</div><h3 data-i18n="feat.2t">Каталог Modrinth</h3><p data-i18n="feat.2d">Моды, шейдеры, текстурпаки и модпаки — поиск и установка в один клик, плюс импорт .mrpack.</p></div>
+        <div class="card"><div class="glyph">◐</div><h3 data-i18n="feat.3t">Темы</h3><p data-i18n="feat.3d">Тёмная и светлая темы, акцентные цвета, dot-сетка и русский/английский интерфейс.</p></div>
+        <div class="card"><div class="glyph">✦</div><h3 data-i18n="feat.4t">Discord RPC</h3><p data-i18n="feat.4d">Статус «сидит в NEMO / запускает / играет» виден в профиле Discord из коробки.</p></div>
+        <div class="card"><div class="glyph">↻</div><h3 data-i18n="feat.5t">Автообновление</h3><p data-i18n="feat.5d">Лаунчер сам находит новый релиз на GitHub и предлагает обновиться. Пропуск версии — в один клик.</p></div>
+        <div class="card"><div class="glyph">⬢</div><h3 data-i18n="feat.6t">Без Java-заморочек</h3><p data-i18n="feat.6d">Нужный рантайм Mojang (8/16/17/21) качается автоматически под каждую версию игры.</p></div>
       </div>
     </section>
 
@@ -104,6 +101,7 @@
     </div>
   </div>
 
+  <script src="/fx.js"></script>
   <script src="/app.js"></script>
 </body>
 </html>
