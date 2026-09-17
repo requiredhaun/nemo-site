@@ -34,6 +34,7 @@
       'req.2': '~200 МБ на диске (+ место под сборки)',
       'req.3': 'Java не нужна — лаунчер скачает сам',
       'foot.by': 'сделано requiredhaun',
+      'foot.star': '★ Оставь звезду',
       'modal.title': 'Скачать NEMO {tag}',
       'modal.sub': 'Выбери вариант — скачивание начнётся сразу.',
       'modal.rec': 'рекомендуем',
@@ -102,6 +103,7 @@
       'req.2': '~200 MB disk (+ room for packs)',
       'req.3': 'No Java needed — the launcher fetches it',
       'foot.by': 'made by requiredhaun',
+      'foot.star': '★ Star us',
       'modal.title': 'Download NEMO {tag}',
       'modal.sub': 'Pick an option — download starts right away.',
       'modal.rec': 'recommended',
@@ -223,41 +225,21 @@
   on(modal, 'click', function (e) { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
-  /* custom cursor: dot + ring + trail */
-  var dot = $('cur');
+  /* custom cursor: только кружок */
   var ring = $('cur-ring');
-  if (dot && ring) {
+  if (ring) {
     var mx = -100, my = -100, rx = -100, ry = -100;
-    var trail = [];
-    for (var i = 0; i < 7; i++) {
-      var s = document.createElement('div');
-      s.className = 'trail';
-      s.style.opacity = '0';
-      document.body.appendChild(s);
-      trail.push({ el: s, x: -100, y: -100 });
-    }
     document.addEventListener('mousemove', function (e) {
       mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
     });
     (function loop() {
-      rx += (mx - rx) * 0.16;
-      ry += (my - ry) * 0.16;
+      rx += (mx - rx) * 0.2;
+      ry += (my - ry) * 0.2;
       ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-      var px = rx, py = ry;
-      for (var i = 0; i < trail.length; i++) {
-        var p = trail[i];
-        p.x += (px - p.x) * 0.32;
-        p.y += (py - p.y) * 0.32;
-        p.el.style.left = p.x + 'px'; p.el.style.top = p.y + 'px';
-        p.el.style.opacity = String(0.5 * (1 - i / trail.length));
-        px = p.x; py = p.y;
-      }
       requestAnimationFrame(loop);
     })();
     document.addEventListener('mouseleave', function () {
       mx = my = rx = ry = -100;
-      trail.forEach(function (p) { p.x = p.y = -100; p.el.style.opacity = '0'; });
     });
     document.querySelectorAll('a, button, summary').forEach(function (el) {
       el.addEventListener('mouseenter', function () { ring.classList.add('hot'); });

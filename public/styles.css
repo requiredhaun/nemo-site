@@ -21,15 +21,10 @@ body {
   display: flex; flex-direction: column;
 }
 
-/* кастомный курсор — только точные указатели */
-#cur, #cur-ring { display: none; }
+/* кастомный курсор: только кружок, только точные указатели */
+#cur-ring { display: none; }
 @media (pointer: fine) {
-  body, a, button { cursor: none; }
-  #cur {
-    display: block; position: fixed; z-index: 9999; width: 8px; height: 8px;
-    background: var(--red); pointer-events: none;
-    transform: translate(-50%, -50%);
-  }
+  body, a, button, summary { cursor: none; }
   #cur-ring {
     display: block; position: fixed; z-index: 9998; width: 30px; height: 30px;
     border: 1px solid var(--red); border-radius: 50%; pointer-events: none;
@@ -37,11 +32,6 @@ body {
     transition: width .18s, height .18s, opacity .18s;
   }
   #cur-ring.hot { width: 46px; height: 46px; opacity: 1; }
-  .trail {
-    display: block; position: fixed; z-index: 9998; width: 5px; height: 5px;
-    background: var(--red); pointer-events: none; opacity: .55;
-    transform: translate(-50%, -50%);
-  }
 }
 
 /* живой фон: canvas-частицы */
@@ -169,6 +159,14 @@ footer {
 }
 footer a { color: var(--dim); }
 footer a:hover { color: var(--txt); }
+.foot-right { display: flex; gap: 16px; align-items: center; }
+.star-btn {
+  border: 1px solid var(--red); color: var(--accent-soft) !important;
+  border-radius: 99px; padding: 6px 14px; text-decoration: none;
+  font-family: var(--font-dot); font-size: 12px; letter-spacing: 1px;
+  transition: background .15s, color .15s;
+}
+.star-btn:hover { background: var(--red); color: #fff !important; }
 
 /* модалка скачивания */
 .modal-overlay {
