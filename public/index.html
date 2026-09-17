@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEMO — Minecraft лаунчер</title>
+  <meta name="description" content="NEMO — Minecraft лаунчер: сборки, моды, шейдеры, темы и Discord RPC." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="cur" aria-hidden="true"></div>
+  <div id="cur-ring" aria-hidden="true"></div>
+  <div class="dots" aria-hidden="true"></div>
+
+  <header class="top">
+    <a class="brand" href="/">
+      <img src="/logo.png" alt="NEMO" />
+      <span>NEMO</span>
+    </a>
+    <nav class="top-nav">
+      <a href="#features" data-i18n="nav.features">Возможности</a>
+      <a href="#req" data-i18n="nav.req">Требования</a>
+      <a href="https://github.com/requiredhaun/NEMO-Launcher" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="top-right">
+      <div class="lang" role="group" aria-label="language">
+        <button id="lang-ru" class="on">RU</button>
+        <button id="lang-en">EN</button>
+      </div>
+      <button class="btn small" id="dl-top" data-i18n="nav.download">Скачать</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-logo"><img src="/logo.png" alt="NEMO logo" /></div>
+      <h1 class="hero-title">NEMO</h1>
+      <p class="hero-sub" data-i18n="hero.sub">Minecraft лаунчер: сборки, моды, шейдеры и темы. Java ставит сам.</p>
+      <div class="hero-row">
+        <button class="btn play" id="dl-hero" data-i18n="hero.download">Скачать лаунчер</button>
+        <span class="ver-badge" id="ver-badge">…</span>
+      </div>
+      <p class="hero-note" data-i18n="hero.note">Windows 10/11 x64 · бесплатно · открытый код</p>
+    </section>
+
+    <div class="pixel-divider"></div>
+
+    <section class="features" id="features">
+      <h2 data-i18n="feat.title">Возможности</h2>
+      <div class="grid">
+        <div class="card"><h3 data-i18n="feat.1t">Сборки и загрузчики</h3><p data-i18n="feat.1d">Изолированные сборки: Vanilla, Fabric, Quilt, Forge, NeoForge. У каждой своя папка, RAM и версия Java.</p></div>
+        <div class="card"><h3 data-i18n="feat.2t">Каталог Modrinth</h3><p data-i18n="feat.2d">Моды, шейдеры, текстурпаки и модпаки — поиск и установка в один клик, плюс импорт .mrpack.</p></div>
+        <div class="card"><h3 data-i18n="feat.3t">Темы</h3><p data-i18n="feat.3d">Тёмная и светлая темы, акцентные цвета, dot-сетка и русский/английский интерфейс.</p></div>
+        <div class="card"><h3 data-i18n="feat.4t">Discord RPC</h3><p data-i18n="feat.4d">Статус «сидит в NEMO / запускает / играет» виден в профиле Discord из коробки.</p></div>
+        <div class="card"><h3 data-i18n="feat.5t">Автообновление</h3><p data-i18n="feat.5d">Лаунчер сам находит новый релиз на GitHub и предлагает обновиться. Пропуск версии — в один клик.</p></div>
+        <div class="card"><h3 data-i18n="feat.6t">Без Java-заморочек</h3><p data-i18n="feat.6d">Нужный рантайм Mojang (8/16/17/21) качается автоматически под каждую версию игры.</p></div>
+      </div>
+    </section>
+
+    <div class="pixel-divider"></div>
+
+    <section class="req" id="req">
+      <h2 data-i18n="req.title">Системные требования</h2>
+      <ul>
+        <li data-i18n="req.1">Windows 10/11, x64</li>
+        <li data-i18n="req.2">~200 МБ на диске (+ место под сборки)</li>
+        <li data-i18n="req.3">Java не нужна — лаунчер скачает сам</li>
+      </ul>
+      <button class="btn play" id="dl-bottom" data-i18n="hero.download">Скачать лаунчер</button>
+    </section>
+  </main>
+
+  <footer>
+    <span>NEMO · <span data-i18n="foot.by">сделано Nema</span></span>
+    <a href="https://github.com/requiredhaun/NEMO-Launcher" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <h3 id="modal-title">NEMO</h3>
+      <p class="sub" data-i18n="modal.sub">Выбери вариант — скачивание начнётся сразу.</p>
+      <div class="dl-list">
+        <a class="dl-opt" href="/dl/setup">
+          <div><div class="dl-name">Setup <span class="rec" data-i18n="modal.rec">рекомендуем</span></div>
+          <div class="dl-desc" data-i18n="modal.setup_d">Установщик для Windows</div></div>
+          <div class="dl-size" data-size="setup">…</div>
+        </a>
+        <a class="dl-opt" href="/dl/portable">
+          <div><div class="dl-name">Portable</div>
+          <div class="dl-desc" data-i18n="modal.port_d">Один .exe без установки</div></div>
+          <div class="dl-size" data-size="portable">…</div>
+        </a>
+        <a class="dl-opt" href="/dl/source">
+          <div><div class="dl-name">Source code</div>
+          <div class="dl-desc" data-i18n="modal.src_d">Исходники .zip с GitHub</div></div>
+          <div class="dl-size">.zip</div>
+        </a>
+      </div>
+      <button class="btn ghost" id="modal-close" data-i18n="modal.close">Закрыть</button>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

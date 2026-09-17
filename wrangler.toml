@@ -1,0 +1,6 @@
+name = "nemo-site"
+main = "src/worker.ts"
+compatibility_date = "2025-06-01"
+
+[assets]
+directory = "./public"
