@@ -34,22 +34,14 @@ body {
   #cur-ring.hot { width: 46px; height: 46px; opacity: 1; border-color: #fff; box-shadow: 0 0 14px rgba(255,255,255,.35); }
 }
 
-/* вайп-переход между страницами */
+/* кроссфейд-переход между страницами */
 #wipe {
   position: fixed; inset: 0; z-index: 9000; pointer-events: none;
-  background:
-    radial-gradient(rgba(229,50,45,.16) 1px, transparent 1.4px),
-    #050505;
-  background-size: 26px 26px, auto;
-  transform: translateY(101%);
-  transition: transform .38s cubic-bezier(.7, 0, .3, 1);
+  background: #050505;
+  opacity: 0;
+  transition: opacity .22s ease;
 }
-#wipe.go { transform: translateY(0); }
-main { animation: pagein .45s both; }
-@keyframes pagein {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: none; }
-}
+#wipe.go { opacity: 1; }
 
 /* живой фон: canvas-частицы */
 #fx {
@@ -84,11 +76,11 @@ main { animation: pagein .45s both; }
 main { position: relative; z-index: 1; max-width: 1020px; margin: 0 auto; padding: 0 24px 60px; width: 100%; flex: 1; }
 
 .hero { text-align: center; padding: 70px 0 40px; }
-.hero > * { animation: rise .6s both; }
-.hero > *:nth-child(2) { animation-delay: .07s; }
-.hero > *:nth-child(3) { animation-delay: .14s; }
-.hero > *:nth-child(4) { animation-delay: .21s; }
-.hero > *:nth-child(5) { animation-delay: .28s; }
+.hero > * { animation: rise .45s both; }
+.hero > *:nth-child(2) { animation-delay: .05s; }
+.hero > *:nth-child(3) { animation-delay: .1s; }
+.hero > *:nth-child(4) { animation-delay: .15s; }
+.hero > *:nth-child(5) { animation-delay: .2s; }
 @keyframes rise {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: none; }
