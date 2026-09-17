@@ -89,6 +89,8 @@ export default {
   async fetch(req: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(req.url)
 
+    if (url.pathname === '/') return redirect('/main')
+
     if (url.pathname === '/api/latest') {
       try {
         const data = await getLatest(req, env, ctx)

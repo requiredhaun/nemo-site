@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEMO — Политика</title>
+  <meta name="description" content="NEMO: открытый код, приватность, источники загрузок." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="cur" aria-hidden="true"></div>
+  <div id="cur-ring" aria-hidden="true"></div>
+  <div class="dots" aria-hidden="true"></div>
+
+  <header class="top">
+    <a class="brand" href="/main">
+      <img src="/logo.png" alt="NEMO" />
+      <span>NEMO</span>
+    </a>
+    <nav class="top-nav">
+      <a href="/main" data-i18n="nav.main">Главная</a>
+      <a href="/download" data-i18n="nav.download">Скачать</a>
+      <a href="/politics" class="on" data-i18n="nav.politics">Политика</a>
+      <a href="/faq" data-i18n="nav.faq">FAQ</a>
+      <a href="https://github.com/requiredhaun/NEMO-Launcher" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="top-right">
+      <div class="lang" role="group" aria-label="language">
+        <button id="lang-ru" class="on">RU</button>
+        <button id="lang-en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <h1 data-i18n="pol.title">Политика</h1>
+      <p class="sub" data-i18n="pol.sub">Коротко и честно: что за проект и что он делает с твоими данными.</p>
+    </section>
+    <div class="grid">
+      <div class="card"><h3 data-i18n="pol.1t">Открытый код</h3><p data-i18n="pol.1d">Исходники лаунчера и этого сайта лежат на GitHub. Каждый релиз собирается из открытого кода — можешь проверить или собрать сам.</p></div>
+      <div class="card"><h3 data-i18n="pol.2t">Без телеметрии</h3><p data-i18n="pol.2d">Лаунчер никуда не отправляет твои данные: ни статистики, ни аналитики, ни трекеров. Сеть используется только для загрузок, которые ты сам запросил.</p></div>
+      <div class="card"><h3 data-i18n="pol.3t">Откуда качается</h3><p data-i18n="pol.3d">Игра и Java — с серверов Mojang. Моды — с Modrinth. Authlib-injector — с GitHub. Обновления лаунчера — с GitHub-релизов. Никаких пересборок и зеркал.</p></div>
+      <div class="card"><h3 data-i18n="pol.4t">Аккаунты</h3><p data-i18n="pol.4d">Офлайн-ник хранится только у тебя. Токены Ely.by лежат в локальном файле и уходят только на серверы Ely.by для входа. Пароли нигде не сохраняются.</p></div>
+      <div class="card"><h3 data-i18n="pol.5t">Discord</h3><p data-i18n="pol.5d">Rich Presence показывает твой статус только если включено в настройках. Выключается в один клик, соединения рвутся сразу.</p></div>
+      <div class="card"><h3 data-i18n="pol.6t">Бесплатно</h3><p data-i18n="pol.6d">NEMO бесплатен целиком: все функции, без премиума и рекламы. Minecraft — отдельная игра Mojang, лаунчер её не раздаёт.</p></div>
+    </div>
+  </main>
+
+  <footer>
+    <span>NEMO · <span data-i18n="foot.by">сделано Nema</span></span>
+    <a href="https://github.com/requiredhaun/NEMO-Launcher" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

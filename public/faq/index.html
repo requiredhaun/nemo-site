@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEMO — FAQ</title>
+  <meta name="description" content="Частые вопросы о NEMO: Java, антивирусы, Ely.by, setup vs portable." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="cur" aria-hidden="true"></div>
+  <div id="cur-ring" aria-hidden="true"></div>
+  <div class="dots" aria-hidden="true"></div>
+
+  <header class="top">
+    <a class="brand" href="/main">
+      <img src="/logo.png" alt="NEMO" />
+      <span>NEMO</span>
+    </a>
+    <nav class="top-nav">
+      <a href="/main" data-i18n="nav.main">Главная</a>
+      <a href="/download" data-i18n="nav.download">Скачать</a>
+      <a href="/politics" data-i18n="nav.politics">Политика</a>
+      <a href="/faq" class="on" data-i18n="nav.faq">FAQ</a>
+      <a href="https://github.com/requiredhaun/NEMO-Launcher" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="top-right">
+      <div class="lang" role="group" aria-label="language">
+        <button id="lang-ru" class="on">RU</button>
+        <button id="lang-en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <h1 data-i18n="faq.title">Частые вопросы</h1>
+    </section>
+    <div class="faq">
+      <details open>
+        <summary data-i18n="faq.1q">Нужна ли Java?</summary>
+        <p data-i18n="faq.1a">Нет. Лаунчер сам скачивает нужный рантайм Mojang (8/16/17/21) под каждую версию игры. Свою Java можно указать в настройках, но это необязательно.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.2q">Антивирус ругается. Это вирус?</summary>
+        <p data-i18n="faq.2a">Нет. Exe не подписан цифровой подписью (она платная), поэтому SmartScreen и антивирусы ворчат на любой неподписанный файл. Код открыт — проверь и собери сам, если сомневаешься.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.3q">Что за вход через Ely.by?</summary>
+        <p data-i18n="faq.3a">Ely.by — бесплатный сервис аккаунтов со скинами и плащами. Войди — и в игре будут твои скин и ник на серверах. Можно играть и без него, с офлайн-ником.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.4q">Setup или Portable?</summary>
+        <p data-i18n="faq.4a">Setup ставит лаунчер как обычную программу. Portable — один .exe, который можно таскать на флешке: настройки живут рядом. Функции одинаковые.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.5q">Как обновиться?</summary>
+        <p data-i18n="faq.5a">Лаунчер сам проверяет GitHub-релизы и предлагает обнову баннером: скачать и установить, пропустить версию или напомнить позже. Автопроверка отключается в настройках.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.6q">Где мои сборки и миры?</summary>
+        <p data-i18n="faq.6a">Каждая сборка живёт в своей папке внутри данных лаунчера, миры — в saves/ сборки. Кнопка «Папка игры» в настройках открывает её сразу.</p>
+      </details>
+    </div>
+  </main>
+
+  <footer>
+    <span>NEMO · <span data-i18n="foot.by">сделано Nema</span></span>
+    <a href="https://github.com/requiredhaun/NEMO-Launcher" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

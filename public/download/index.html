@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEMO — Скачать</title>
+  <meta name="description" content="Скачать NEMO: установщик, portable или исходники." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="cur" aria-hidden="true"></div>
+  <div id="cur-ring" aria-hidden="true"></div>
+  <div class="dots" aria-hidden="true"></div>
+
+  <header class="top">
+    <a class="brand" href="/main">
+      <img src="/logo.png" alt="NEMO" />
+      <span>NEMO</span>
+    </a>
+    <nav class="top-nav">
+      <a href="/main" data-i18n="nav.main">Главная</a>
+      <a href="/download" class="on" data-i18n="nav.download">Скачать</a>
+      <a href="/politics" data-i18n="nav.politics">Политика</a>
+      <a href="/faq" data-i18n="nav.faq">FAQ</a>
+      <a href="https://github.com/requiredhaun/NEMO-Launcher" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="top-right">
+      <div class="lang" role="group" aria-label="language">
+        <button id="lang-ru" class="on">RU</button>
+        <button id="lang-en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <h1 data-i18n="dl.title">Скачать NEMO</h1>
+      <p class="sub" data-i18n="dl.sub">Файлы тянутся напрямую с GitHub-релизов. Выбери вариант:</p>
+      <p><span class="ver-badge" id="ver-badge">…</span></p>
+    </section>
+    <div class="dl-list page">
+      <a class="dl-opt" href="/dl/setup">
+        <div><div class="dl-name">Setup <span class="rec" data-i18n="modal.rec">рекомендуем</span></div>
+        <div class="dl-desc" data-i18n="modal.setup_d">Установщик для Windows</div></div>
+        <div class="dl-size" data-size="setup">…</div>
+      </a>
+      <a class="dl-opt" href="/dl/portable">
+        <div><div class="dl-name">Portable</div>
+        <div class="dl-desc" data-i18n="modal.port_d">Один .exe без установки</div></div>
+        <div class="dl-size" data-size="portable">…</div>
+      </a>
+      <a class="dl-opt" href="/dl/source">
+        <div><div class="dl-name">Source code</div>
+        <div class="dl-desc" data-i18n="modal.src_d">Исходники .zip с GitHub</div></div>
+        <div class="dl-size">.zip</div>
+      </a>
+    </div>
+    <p class="sub"><a class="linklike" id="all-rel" href="https://github.com/requiredhaun/NEMO-Launcher/releases" target="_blank" rel="noopener" data-i18n="dl.all">Все релизы на GitHub</a></p>
+  </main>
+
+  <footer>
+    <span>NEMO · <span data-i18n="foot.by">сделано Nema</span></span>
+    <a href="https://github.com/requiredhaun/NEMO-Launcher" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

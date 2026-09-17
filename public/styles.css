@@ -58,6 +58,7 @@ body {
 .top-nav { display: flex; gap: 18px; margin-left: 12px; }
 .top-nav a { color: var(--dim); text-decoration: none; font-size: 14px; }
 .top-nav a:hover { color: var(--txt); }
+.top-nav a.on { color: var(--txt); }
 .top-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
 .lang { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 .lang button {
@@ -159,6 +160,24 @@ footer a:hover { color: var(--txt); }
 }
 .dl-desc { color: var(--dim); font-size: 12px; margin-top: 3px; }
 .dl-size { font-family: var(--font-dot); color: var(--dim); font-size: 13px; white-space: nowrap; }
+
+/* внутренние страницы */
+.page-head { padding: 46px 0 8px; }
+.page-head h1 { font-family: var(--font-dot); letter-spacing: 4px; font-size: clamp(30px, 5vw, 46px); margin: 0; }
+.page-head .sub { color: var(--dim); margin: 10px 0 18px; }
+.dl-list.page { max-width: 640px; margin: 6px 0 18px; }
+.linklike { color: var(--dim); font-size: 13px; }
+.linklike:hover { color: var(--txt); }
+
+.faq { display: flex; flex-direction: column; gap: 10px; max-width: 760px; padding-bottom: 30px; }
+.faq details {
+  background: linear-gradient(180deg, var(--card1), var(--card2));
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px;
+}
+.faq details[open] { border-color: var(--dim); }
+.faq summary { font-family: var(--font-dot); font-size: 14px; letter-spacing: 1px; }
+.faq summary::marker { color: var(--red); }
+.faq p { color: var(--dim); font-size: 14px; line-height: 1.65; margin: 10px 0 2px; }
 
 @media (max-width: 640px) {
   .top-nav { display: none; }
