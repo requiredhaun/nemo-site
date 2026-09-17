@@ -193,7 +193,22 @@
   function setLang(l) {
     lang = l;
     try { localStorage.setItem('nemo-site-lang', l); } catch (e) { /* ignore */ }
-    applyLang();
+  /* вайп-переход: клик по внутренней ссылке шторкой закрывает, потом идём */
+  (function () {
+    var wipe = $('wipe');
+    if (!wipe) return;
+    document.querySelectorAll('a[href^="/"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var href = a.getAttribute('href');
+        if (!href || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        wipe.classList.add('go');
+        setTimeout(function () { location.href = href; }, 400);
+      });
+    });
+  })();
+
+  applyLang();
   }
   on($('lang-ru'), 'click', function () { setLang('ru'); });
   on($('lang-en'), 'click', function () { setLang('en'); });
