@@ -18,6 +18,7 @@ body {
   margin: 0; background: var(--bg); color: var(--txt);
   font-family: "Segoe UI", system-ui, sans-serif;
   min-height: 100vh; overflow-x: hidden;
+  display: flex; flex-direction: column;
 }
 
 /* кастомный курсор — только точные указатели */
@@ -36,14 +37,28 @@ body {
     transition: width .18s, height .18s, opacity .18s;
   }
   #cur-ring.hot { width: 46px; height: 46px; opacity: 1; }
+  .trail {
+    display: block; position: fixed; z-index: 9998; width: 5px; height: 5px;
+    background: var(--red); pointer-events: none; opacity: .55;
+    transform: translate(-50%, -50%);
+  }
 }
 
-/* dot-сетка */
+/* dot-сетка: дрейф + красное свечение за курсором */
 .dots {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  position: fixed; inset: -60px; z-index: 0; pointer-events: none;
   background-image: radial-gradient(#2a2a31 1px, transparent 1.3px);
   background-size: 26px 26px;
   mask-image: radial-gradient(ellipse 90% 70% at 50% 20%, black 30%, transparent 75%);
+  animation: drift 26s linear infinite;
+}
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(26px, 52px, 0); }
+}
+.glow {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 30%), rgba(229,50,45,.09), transparent 65%);
 }
 
 .top {
@@ -67,7 +82,7 @@ body {
 }
 .lang button.on { background: var(--red); color: #fff; }
 
-main { position: relative; z-index: 1; max-width: 1020px; margin: 0 auto; padding: 0 24px 60px; }
+main { position: relative; z-index: 1; max-width: 1020px; margin: 0 auto; padding: 0 24px 60px; width: 100%; flex: 1; }
 
 .hero { text-align: center; padding: 70px 0 40px; }
 .hero-logo img { width: 120px; height: 120px; }

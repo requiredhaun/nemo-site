@@ -33,7 +33,7 @@
       'req.1': 'Windows 10/11, x64',
       'req.2': '~200 МБ на диске (+ место под сборки)',
       'req.3': 'Java не нужна — лаунчер скачает сам',
-      'foot.by': 'сделано Nema',
+      'foot.by': 'сделано requiredhaun',
       'modal.title': 'Скачать NEMO {tag}',
       'modal.sub': 'Выбери вариант — скачивание начнётся сразу.',
       'modal.rec': 'рекомендуем',
@@ -101,7 +101,7 @@
       'req.1': 'Windows 10/11, x64',
       'req.2': '~200 MB disk (+ room for packs)',
       'req.3': 'No Java needed — the launcher fetches it',
-      'foot.by': 'made by Nema',
+      'foot.by': 'made by requiredhaun',
       'modal.title': 'Download NEMO {tag}',
       'modal.sub': 'Pick an option — download starts right away.',
       'modal.rec': 'recommended',
@@ -223,21 +223,51 @@
   on(modal, 'click', function (e) { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
-  /* custom cursor */
+  /* custom cursor: dot + ring + trail */
   var dot = $('cur');
   var ring = $('cur-ring');
+  var glow = document.querySelector('.glow');
   if (dot && ring) {
-    var mx = -100, my = -100, rx = -100, ry = -100;
+    var mx = -100, my = -100, rx = -100, ry = -100, glowTick = false;
+    var trail = [];
+    for (var i = 0; i < 7; i++) {
+      var s = document.createElement('div');
+      s.className = 'trail';
+      s.style.opacity = '0';
+      document.body.appendChild(s);
+      trail.push({ el: s, x: -100, y: -100 });
+    }
     document.addEventListener('mousemove', function (e) {
       mx = e.clientX; my = e.clientY;
       dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+      if (glow && !glowTick) {
+        glowTick = true;
+        requestAnimationFrame(function () {
+          glow.style.setProperty('--mx', mx + 'px');
+          glow.style.setProperty('--my', my + 'px');
+          glowTick = false;
+        });
+      }
     });
     (function loop() {
       rx += (mx - rx) * 0.16;
       ry += (my - ry) * 0.16;
       ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      var px = rx, py = ry;
+      for (var i = 0; i < trail.length; i++) {
+        var p = trail[i];
+        p.x += (px - p.x) * 0.32;
+        p.y += (py - p.y) * 0.32;
+        p.el.style.left = p.x + 'px'; p.el.style.top = p.y + 'px';
+        p.el.style.opacity = String(0.5 * (1 - i / trail.length));
+        px = p.x; py = p.y;
+      }
       requestAnimationFrame(loop);
     })();
+    document.addEventListener('mouseleave', function () {
+      mx = my = rx = ry = -100;
+      trail.forEach(function (p) { p.x = p.y = -100; p.el.style.opacity = '0'; });
+    });
     document.querySelectorAll('a, button, summary').forEach(function (el) {
       el.addEventListener('mouseenter', function () { ring.classList.add('hot'); });
       el.addEventListener('mouseleave', function () { ring.classList.remove('hot'); });
